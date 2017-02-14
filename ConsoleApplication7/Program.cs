@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ConsoleApplication7
 {
@@ -10,6 +11,11 @@ namespace ConsoleApplication7
     {
         static void Main(string[] args)
         {
+            StartGame startGame = new StartGame();
+            startGame.HelloPeople();
+            ReadLine readLine = new ReadLine();
+            readLine.Read();
         }
+
     }
 }
