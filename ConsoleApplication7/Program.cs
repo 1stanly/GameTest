@@ -13,8 +13,7 @@ namespace ConsoleApplication7
         {
             StartGame startGame = new StartGame();
             startGame.HelloPeople();
-            ReadLine readLine = new ReadLine();
-            readLine.Read();
+            ConsoleIO.ReadLine();
         }
 
     }

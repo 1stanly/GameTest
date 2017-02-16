@@ -25,7 +25,7 @@ namespace ConsoleApplication7
         }
         public void StartNewGame()
         {
-            deck.CrateDeck();
+            deck.CreateDeck();
             game.StartRoundTwoCards();
             game.FirstCheck();
         }

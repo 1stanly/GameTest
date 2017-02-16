@@ -49,7 +49,7 @@ namespace ConsoleApplication7
             Console.WriteLine();
             Console.WriteLine("\t\t\tYOU WIN !");
             ViewModel.playerWins++;
-            Console.WriteLine("\tWINS : "+ViewModel.playerWins+"\t\t"+ViewModel.casinoWins);
+            Console.WriteLine("\tWINS : " + ViewModel.playerWins + "\t\t" + ViewModel.casinoWins);
 
             NextGame();
         }
@@ -83,6 +83,14 @@ namespace ConsoleApplication7
                 Console.WriteLine("\tWINS : " + ViewModel.playerWins + "\t\t" + ViewModel.casinoWins);
                 Console.WriteLine("\t\tGOOD  BY !");
             }
+        }
+        static public void ReadLine()
+        {
+            Console.ReadLine();
+        }
+        static public  void WriteLine()
+        {
+            Console.WriteLine();
         }
     }
 }

@@ -9,18 +9,16 @@ namespace ConsoleApplication7
     public class Game
     {
         private int _maxValueCards = 21;
-        GetPlayerCard getPC = new GetPlayerCard();
-        GetCasinoCard getCC = new GetCasinoCard();
 
         public void StartRoundTwoCards()
         {
             ViewModel.playerSum = 0;
             ViewModel.casinoSum = 0;
-            Console.WriteLine();
+            ConsoleIO.WriteLine();
             for (int i = 0; i < 2; i++)
             {
-                getPC.GetPC();
-                getCC.GetCC();
+                GetPlayerCard();
+                GetCasinoCard();
 
                 ConsoleIO.ShowCards();
             }
@@ -47,8 +45,8 @@ namespace ConsoleApplication7
         }
         public void NextRound()
         {
-            getPC.GetPC();
-            getCC.GetCC();
+            GetPlayerCard();
+            GetCasinoCard();
 
             ConsoleIO.ShowCards();
             ConsoleIO.ResultCards();
@@ -67,6 +65,18 @@ namespace ConsoleApplication7
             {
                 ConsoleIO.YouEqual();
             }
+        }
+        private void GetPlayerCard()
+        {
+            ViewModel.PlayerHandCards.Add(new Card() { Name = Deck.DeckForGame.First().Name, Suit = Deck.DeckForGame.First().Suit, Value = Deck.DeckForGame.First().Value });
+            ViewModel.playerSum += ViewModel.PlayerHandCards.Last().Value;
+            Deck.DeckForGame.Remove(Deck.DeckForGame.First());
+        }
+        private void GetCasinoCard()
+        {
+            ViewModel.CasinoHandCards.Add(new Card() { Name = Deck.DeckForGame.First().Name, Suit = Deck.DeckForGame.First().Suit, Value = Deck.DeckForGame.First().Value });
+            ViewModel.casinoSum += ViewModel.CasinoHandCards.Last().Value;
+            Deck.DeckForGame.Remove(Deck.DeckForGame.First());
         }
     }
 }

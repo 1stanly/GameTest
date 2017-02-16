@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication7
 {
+    //enum Names {Six,Seven,Eight,Nine,Ten,Valet,Dama,Korol,Tuz }
+    //enum Value { Six, Seven, Eight, Nine, Ten, Two,Three,Four,Eleven}
     public class Deck
     {
         public List<Card> DeckList = new List<Card>();
@@ -13,7 +15,7 @@ namespace ConsoleApplication7
         public int randIndexCard;
         Random rand = new Random();
         
-        public void CrateDeck()
+        public void CreateDeck()
         {
             string[] ArrNames = new string[] { "6", "7", "8", "9", "10", "Valet", "Dama", "Korol", "TUZ" };
             int[] ArrValues = new int[] { 6, 7, 8, 9, 10, 2, 3, 4, 11 };
@@ -29,7 +31,7 @@ namespace ConsoleApplication7
                     DeckList.Add(card);
                 }
             }
-            Console.WriteLine();
+            ConsoleIO.WriteLine();
             RandomDeck();
         }
         public void RandomDeck()

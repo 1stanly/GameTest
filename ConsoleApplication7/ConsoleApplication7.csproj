@@ -47,9 +47,6 @@
     <Compile Include="ConsoleIO.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="GetCasinoCard.cs" />
-    <Compile Include="GetPlayerCard.cs" />
-    <Compile Include="ReadLine.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="StartGame.cs" />
     <Compile Include="Program.cs" />
