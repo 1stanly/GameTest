@@ -6,33 +6,42 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication7
 {
-    //enum Names {Six,Seven,Eight,Nine,Ten,Valet,Dama,Korol,Tuz }
-    //enum Value { Six, Seven, Eight, Nine, Ten, Two,Three,Four,Eleven}
+    enum Names { Six, Seven, Eight, Nine, Ten, Valet, Dama, Korol, Tuz }
+    enum Value { Six, Seven, Eight, Nine, Ten, Two, Three, Four, Eleven }
     public class Deck
     {
         public List<Card> DeckList = new List<Card>();
         static  public List<Card> DeckForGame = new List<Card>();
         public int randIndexCard;
         Random rand = new Random();
-        
+        public int maxValSuits = 3;
+        public int minNameNum=0;
+        public int maxNameNum=4;
+        public int minNameImg = 0;
+        public int maxNameImg = 3;
+
         public void CreateDeck()
         {
-            string[] ArrNames = new string[] { "6", "7", "8", "9", "10", "Valet", "Dama", "Korol", "TUZ" };
-            int[] ArrValues = new int[] { 6, 7, 8, 9, 10, 2, 3, 4, 11 };
-
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i <=maxValSuits; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = minNameNum; j <= maxNameNum; j++)
+                {
+                    Card c = new Card();
+                    c.Suit = (Suit)i;
+                    c.Name = (Names)j;
+                    c.Value = (Value)j;
+                    DeckList.Add(c);
+                }
+                for(int x= minNameImg; x <= maxNameImg; x++)
                 {
                     Card card = new Card();
-                    card.Name = ArrNames[i];
-                    card.Value = ArrValues[i];
-                    card.Suit = (Suit)j;
+                    card.Suit = (Suit)i;
+                    card.Name = (Names)x;
+                    card.Value = (Value)x;
                     DeckList.Add(card);
                 }
             }
-            ConsoleIO.WriteLine();
-            RandomDeck();
+                RandomDeck();
         }
         public void RandomDeck()
         {
