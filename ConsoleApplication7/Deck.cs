@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 namespace ConsoleApplication7
 {
     enum Names { Six, Seven, Eight, Nine, Ten, Valet, Dama, Korol, Tuz }
-    enum Value { Six, Seven, Eight, Nine, Ten, Two, Three, Four, Eleven }
+    // enum Value { Six=6, Seven, Eight, Nine, Ten, Two=2, Three, Four, Eleven }
     public class Deck
     {
+        int[] arr = new int[] { 6, 7, 8, 9, 10, 2, 3, 4, 11 };
+
         public List<Card> DeckList = new List<Card>();
         static  public List<Card> DeckForGame = new List<Card>();
         public int randIndexCard;
@@ -17,8 +19,8 @@ namespace ConsoleApplication7
         public int maxValSuits = 3;
         public int minNameNum=0;
         public int maxNameNum=4;
-        public int minNameImg = 0;
-        public int maxNameImg = 3;
+        public int minNameImg = 5;
+        public int maxNameImg = 8;
 
         public void CreateDeck()
         {
@@ -26,22 +28,27 @@ namespace ConsoleApplication7
             {
                 for (int j = minNameNum; j <= maxNameNum; j++)
                 {
-                    Card c = new Card();
-                    c.Suit = (Suit)i;
-                    c.Name = (Names)j;
-                    c.Value = (Value)j;
-                    DeckList.Add(c);
+                    Card card = new Card();
+                    card.Suit = (Suit)i;
+                    card.Name = ((Names)j).ToString();
+                    card.Value =arr[j];
+                    DeckList.Add(card);
                 }
-                for(int x= minNameImg; x <= maxNameImg; x++)
+                for (int x= minNameImg; x <= maxNameImg; x++)
                 {
                     Card card = new Card();
                     card.Suit = (Suit)i;
-                    card.Name = (Names)x;
-                    card.Value = (Value)x;
+                    card.Name = ((Names)x).ToString();
+                    card.Value = arr[x];
                     DeckList.Add(card);
+                    
                 }
             }
-                RandomDeck();
+            foreach(Card n in DeckList)
+            {
+                Console.WriteLine(n.Name + n.Suit+n.Value);
+            }
+                //RandomDeck();
         }
         public void RandomDeck()
         {

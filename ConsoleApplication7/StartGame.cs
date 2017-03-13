@@ -26,13 +26,13 @@ namespace ConsoleApplication7
         public void StartNewGame()
         {
             deck.CreateDeck();
-            game.StartRoundTwoCards();
-            game.FirstCheck();
+            //game.StartRoundTwoCards();
+            //game.FirstCheck();
         }
         public void StartNextRound()
         {
-            game.NextRound();
-            game.FirstCheck();
+            //game.NextRound();
+            //game.FirstCheck();
         }
 
     }

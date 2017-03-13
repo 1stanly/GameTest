@@ -41,7 +41,7 @@ namespace ConsoleApplication7
             }
             if (yes_or_no == "n")
             {
-                game.FinishCheck();
+                //game.FinishCheck();
             }
         }
         static public void YouWin()
