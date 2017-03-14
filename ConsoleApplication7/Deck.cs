@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace ConsoleApplication7
 {
     enum Names { Six, Seven, Eight, Nine, Ten, Valet, Dama, Korol, Tuz }
-    // enum Value { Six=6, Seven, Eight, Nine, Ten, Two=2, Three, Four, Eleven }
     public class Deck
     {
         int[] arr = new int[] { 6, 7, 8, 9, 10, 2, 3, 4, 11 };
@@ -21,6 +20,7 @@ namespace ConsoleApplication7
         public int maxNameNum=4;
         public int minNameImg = 5;
         public int maxNameImg = 8;
+        public int minVal=6;
 
         public void CreateDeck()
         {
@@ -31,17 +31,33 @@ namespace ConsoleApplication7
                     Card card = new Card();
                     card.Suit = (Suit)i;
                     card.Name = ((Names)j).ToString();
-                    card.Value =arr[j];
+                    card.Value = minVal;
+                    minVal++;
                     DeckList.Add(card);
                 }
+                minVal = 6;
                 for (int x= minNameImg; x <= maxNameImg; x++)
                 {
                     Card card = new Card();
                     card.Suit = (Suit)i;
                     card.Name = ((Names)x).ToString();
-                    card.Value = arr[x];
+                    if(card.Name == "Valet")
+                    {
+                        card.Value = 2;
+                    }
+                    if (card.Name == "Dama")
+                    {
+                        card.Value = 3;
+                    }
+                    if (card.Name == "Korol")
+                    {
+                        card.Value = 4;
+                    }
+                    if (card.Name == "Tuz")
+                    {
+                        card.Value = 11;
+                    }
                     DeckList.Add(card);
-                    
                 }
             }
             foreach(Card n in DeckList)
